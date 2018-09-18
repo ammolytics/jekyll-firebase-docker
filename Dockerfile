@@ -1,4 +1,4 @@
-FROM ammolytics/firebase-docker:master
+FROM ammolytics/firebase-docker:latest
 MAINTAINER Eric Higgins <erichiggins@gmail.com>
 
 RUN apk upgrade --update \
