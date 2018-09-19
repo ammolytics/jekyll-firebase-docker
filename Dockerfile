@@ -6,6 +6,7 @@ RUN apk upgrade --update \
     ruby \
     ruby-dev \
     ruby-bundler \
+    ruby-bigdecimal \
     ruby-io-console \
     ruby-irb \
     yaml \
@@ -13,6 +14,7 @@ RUN apk upgrade --update \
     ruby-json \
     ruby-rake \
   && gem install --no-document \
+    bundler \
     sass \
     safe_yaml \
     jekyll \
@@ -20,5 +22,6 @@ RUN apk upgrade --update \
     jekyll-sass-converter \
     jekyll-sitemap \
     jekyll-feed \
-    jekyll-redirect-from
+    jekyll-redirect-from \
+  && gem cleanup
 
