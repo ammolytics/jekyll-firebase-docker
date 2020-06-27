@@ -26,3 +26,4 @@ RUN apk upgrade --update \
     rdoc \
   && gem cleanup
 
+USER node
