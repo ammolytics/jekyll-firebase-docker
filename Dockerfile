@@ -27,3 +27,6 @@ RUN apk upgrade --update \
   && gem cleanup
 
 USER node
+ENV HOME /home/node
+ENV GEM_HOME $HOME/gems
+ENV PATH $GEM_HOME/bin:$PATH
