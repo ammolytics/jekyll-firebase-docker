@@ -1,6 +1,10 @@
 FROM ammolytics/firebase-docker:latest
 MAINTAINER Eric Higgins <erichiggins@gmail.com>
 
+ENV HOME /home/node
+ENV GEM_HOME $HOME/gems
+ENV PATH $GEM_HOME/bin:$PATH
+
 RUN apk upgrade --update \
   && apk add \
     ruby \
@@ -12,8 +16,11 @@ RUN apk upgrade --update \
     yaml \
     yaml-dev \
     ruby-json \
-    ruby-rake \
-  && gem install --no-document \
+    ruby-rake
+
+USER node
+
+RUN gem install --no-document \
     bundler \
     sass \
     safe_yaml \
@@ -26,7 +33,3 @@ RUN apk upgrade --update \
     rdoc \
   && gem cleanup
 
-USER node
-ENV HOME /home/node
-ENV GEM_HOME $HOME/gems
-ENV PATH $GEM_HOME/bin:$PATH
